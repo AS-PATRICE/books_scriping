@@ -63,7 +63,7 @@ def get_category_info(link_cat,category_name):
             book_infos = get_product_info(url_book)
             save_product_info(category_name,book_infos)
    
-
+        # taking into account the pagination
         test_tag_next=soup.find("li",class_="next")
 
         if test_tag_next!=None:
