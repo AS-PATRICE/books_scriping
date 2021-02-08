@@ -73,3 +73,35 @@ def get_category_info(link_cat,category_name):
         else:
             current_category=None
 
+#########################################################
+# script data backup
+#########################################################
+
+def save_product_info(category_name,data):
+
+    # Create directory where we will save all the category directory, csv files and images
+    try:
+        os.mkdir('categories/'+ category_name)
+    except:
+        pass
+
+    # Check if category file exists
+    if os.path.isfile("categories/"+ category_name +"/" + category_name +'.csv'):
+        with open('categories/'+ category_name +"/" + category_name +".csv","a",newline="", encoding="utf-8") as category_file:
+            csv_writer = csv.writer(category_file)
+            csv_writer.writerow([data['product_page_url'], data['universal_product_code'], data['title'], data['price_including_tax'], data['price_excluding_tax'], data['number_available'], data['product_description'], data['category'], data['review_rating'], data['image_url']])
+    else:
+        with open('categories/'+ category_name +"/" + category_name +".csv","a",newline="", encoding="utf-8") as category_file:
+            csv_writer = csv.writer(category_file)
+            csv_writer.writerow(['product_page_url', 'universal_product_code', 'title', 'price_including_tax', 'price_excluding_tax', 'number_available', 'product_description', 'category', 'review_rating', 'image_url'])
+            csv_writer.writerow([data['product_page_url'], data['universal_product_code'], data['title'], data['price_including_tax'], data['price_excluding_tax'], data['number_available'], data['product_description'], data['category'], data['review_rating'], data['image_url']])
+
+    # Downlord and save all images of each directory
+    image_title = re.sub(r"[-()\"#/@;:<>{}`+=~|.!?,*]", "", data['title']) # the re module allows special characters to be taken into account
+    image_url = data['image_url']
+       
+    with open("categories/"+ category_name +"/" + image_title +".jpg","wb") as image_file:
+        im = requests.get(image_url)
+        image_file.write(im.content)         
+
+            
