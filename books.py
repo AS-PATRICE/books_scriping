@@ -9,7 +9,7 @@ import os
 import csv
 
 #########################################################
-# script that extracts data from a book
+# Script that extracts data from a book
 #########################################################
 
 # The get_product_info function which receives the url of each book and returns the data concerning it
@@ -40,14 +40,14 @@ def get_product_info(url):
         }
     return book_ref
 #########################################################
-# script that allows the extraction of data from a book category taking into account the pagination
+# Script that allows the extraction of data from a book category taking into account the pagination
 #########################################################
 
 # The get_categories_info function receives the url of each category and returns the link of each book article it has
 
 def get_category_info(link_cat,category_name):
 
-    current_category = link_cat # creation of an intermediate variable to facilitate iteration
+    current_category = link_cat # Creation of an intermediate variable to facilitate iteration
 
     while  current_category!= None:
 
@@ -59,11 +59,11 @@ def get_category_info(link_cat,category_name):
             link = a["href"][9:]
             url_book = "http://books.toscrape.com/catalogue/" + link
 
-            #On sauvegarde 
-            book_infos = get_product_info(url_book)
-            save_product_info(category_name,book_infos)
+            
+            book_infos = get_product_info(url_book) # Send urls of each book to get_product-info
+            save_product_info(category_name,book_infos) # Data recording of each book
    
-        # taking into account the pagination
+        # Taking into account the pagination
         test_tag_next=soup.find("li",class_="next")
 
         if test_tag_next!=None:
@@ -74,7 +74,7 @@ def get_category_info(link_cat,category_name):
             current_category=None
 
 #########################################################
-# script data backup
+# Script data backup
 #########################################################
 
 def save_product_info(category_name,data):
@@ -104,4 +104,33 @@ def save_product_info(category_name,data):
         im = requests.get(image_url)
         image_file.write(im.content)         
 
-            
+#########################################################
+# Script that extracts all category url
+#########################################################
+
+# get_all_category function retrieves and returns the link of each category to get_category_info
+def get_all_category(url):
+
+    # Create directory where we will save all the files
+    try:
+        os.mkdir('./categories')
+    except:
+        pass
+    
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, "html.parser")
+    cat_links = soup.findAll("ul", attrs={"class": "nav nav-list"})
+    for ul in cat_links:
+        cat_link = ul.findAll("a")[1:]
+        for link in cat_link:
+            if "href" in link.attrs:
+                link_cat = "http://books.toscrape.com/" + link.attrs["href"].replace('index.html','')
+
+                #Get category name. Strip method is useful to remove white spaces around the category name
+                category_name = link.string.strip()
+
+                get_category_info(link_cat,category_name)
+
+get_all_category("http://books.toscrape.com/")
+
+
