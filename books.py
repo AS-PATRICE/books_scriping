@@ -39,3 +39,37 @@ def get_product_info(url):
             "image_url": image_url,
         }
     return book_ref
+#########################################################
+# script that allows the extraction of data from a book category taking into account the pagination
+#########################################################
+
+# The get_categories_info function receives the url of each category and returns the link of each book article it has
+
+def get_category_info(link_cat,category_name):
+
+    current_category = link_cat # creation of an intermediate variable to facilitate iteration
+
+    while  current_category!= None:
+
+        r = requests.get(current_category)
+        soup = BeautifulSoup(r.text, "html.parser")
+        book_links = soup.findAll("h3")
+        for h3 in book_links:
+            a = h3.find("a")
+            link = a["href"][9:]
+            url_book = "http://books.toscrape.com/catalogue/" + link
+
+            #On sauvegarde 
+            book_infos = get_product_info(url_book)
+            save_product_info(category_name,book_infos)
+   
+
+        test_tag_next=soup.find("li",class_="next")
+
+        if test_tag_next!=None:
+            next_page=test_tag_next.find("a")["href"]
+            current_category = link_cat + next_page
+
+        else:
+            current_category=None
+
