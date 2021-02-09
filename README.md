@@ -1,16 +1,10 @@
+# Book Scraping: Analyse de marché avec Python.
 ***
 # Information générale:
 Ce programme vise extraire les donnée sur le site de vente de livre (http://books.toscrape.com/) dans le cadre d'une analyse de marché.<br/>
 Il s'agit d'un programme essentiellement élaboré en laguage python. Le programme est exécutable à la demande dans le but de recupérer certaines information sur des livres au moment de son exécution.
-
-### Nom du projet: 
-Analyse de marché avec Python.
-
-### Auteur. 
-AS-Patrice
-### Date de création. 	
-Févier 2021
-### Description.
+***
+# Description.
 Il est organisé autour de quatre principales fonctions: <br/>
 -la première "get-product-info" visite la page de chaque livre pour y extraire les informations préalablement sélectionnées sur le livre: titre du livre, prix, url du livre, description...<br/>
 -La seconde "get_category_info" parcours toutes les pages de catégorie des livres avec prise en compte de la paginnation et y extrait l'url de chaque livre. Cet url est ensuite envoyés à la fonction "get_product_info".<br/>
