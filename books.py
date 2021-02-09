@@ -1,6 +1,6 @@
-#########################################################
+#--------------------------------------------------------
 # Import of modules
-#########################################################
+#--------------------------------------------------------
 
 import requests
 from bs4 import BeautifulSoup
@@ -8,9 +8,9 @@ import re
 import os
 import csv
 
-#########################################################
+#--------------------------------------------------------
 # Script that extracts data from a book
-#########################################################
+#--------------------------------------------------------
 
 # The get_product_info function which receives the url of each book and returns the data concerning it
 def get_product_info(url):
@@ -39,9 +39,10 @@ def get_product_info(url):
             "image_url": image_url,
         }
     return book_ref
-#########################################################
+
+#----------------------------------------------------------------------------------------------------------------------------
 # Script that allows the extraction of data from a book category taking into account the pagination
-#########################################################
+#----------------------------------------------------------------------------------------------------------------------------
 
 # The get_categories_info function receives the url of each category and returns the link of each book article it has
 
@@ -73,10 +74,10 @@ def get_category_info(link_cat,category_name):
         else:
             current_category=None
 
-#########################################################
-# Script data backup
-#########################################################
 
+#----------------------------------
+# Script data backup
+#---------------------------------
 def save_product_info(category_name,data):
 
     # Create directory where we will save all the category directory, csv files and images
@@ -104,9 +105,9 @@ def save_product_info(category_name,data):
         im = requests.get(image_url)
         image_file.write(im.content)         
 
-#########################################################
+#-------------------------------------------------------------
 # Script that extracts all category url
-#########################################################
+#-------------------------------------------------------------
 
 # get_all_category function retrieves and returns the link of each category to get_category_info
 def get_all_category(url):
