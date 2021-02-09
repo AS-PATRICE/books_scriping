@@ -1,22 +1,22 @@
-# books_scriping
 ***
 # Information générale:
-Ce programme vise extraire les donnée sur le site de vente de de livre (http://books.toscrape.com/) dans le cadre d'une analyse de marché.
- version Beta d'un programme écrit essentiellement en laguage python
-- programme exécutable à la demande visant à recupérer les prix au moment de son exécution.
-- automatiser le suivi le prix des livres d'occasion chez un concurrent
+Ce programme vise extraire les donnée sur le site de vente de de livre (http://books.toscrape.com/) dans le cadre d'une analyse de marché.<br/>
+Il s'agit d'un programme essentiellement élaboré en laguage python et qui est exécutable à la demande dans le but de recupérer certaines information sur des livres au moment de son exécution.
 
-#### Nom du projet: Analyse de marché avec Python.
+### Nom du projet: 
+-Analyse de marché avec Python.
 
-#### Auteur: AS-Patrice
-#### Févier 2021
-#### Description:
+### Auteur. 
+-AS-Patrice
+### Date de création. 	
+-Févier 2021
+### Description.
 Il est organisé autour de quatre principales fonctions: 
-*la première "get-product-info" visite la page de chaque livre pour y extraire les informations préalablement sélectionnées sur le livre: titre du livre, prix, url du livre, description...
-*La seconde "get_category_info" parcours toutes les pages de catégorie des livres avec prise en compte de la paginnation et y extrait l'url de chaque livre. Cet url est ensuite envoyés à la fonction "get_product_info".
-*La fonction "save_product_info" se charge de recupérer toutes les informations extraites sur chaque page de livre  et les stocke dans des fichiers correspondants.
-Ces fichier ainsi que les images de chaque livre sont enregistrés dans un dossier(dossier fille) qui porte le nom de la catégorie concernée. Enfin, tous les dossier sont rangés dans un dossier appelé catégories(dossier parent).
-*Enfin, la fonction "get_all_category" récupère les urls des différentes catégories.Ces urls sont ensuite envoyés à la fonction "get_category_info"
+-la première "get-product-info" visite la page de chaque livre pour y extraire les informations préalablement sélectionnées sur le livre: titre du livre, prix, url du livre, description...<br/>
+-La seconde "get_category_info" parcours toutes les pages de catégorie des livres avec prise en compte de la paginnation et y extrait l'url de chaque livre. Cet url est ensuite envoyés à la fonction "get_product_info".<br/>
+-La fonction "save_product_info" se charge de recupérer toutes les informations extraites sur chaque page de livre  et les stocke dans des fichiers correspondants.<br/>
+Ces fichier ainsi que les images de chaque livre sont enregistrés dans un dossier(dossier fille) qui porte le nom de la catégorie concernée. Enfin, tous les dossier sont rangés dans un dossier appelé catégories(dossier parent).<br/>
+-Enfin, la fonction "get_all_category" récupère les urls des différentes catégories.Ces urls sont ensuite envoyés à la fonction "get_category_info".<br/>
 ***
 
 # Technologie utilisée:
