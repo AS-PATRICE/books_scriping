@@ -19,9 +19,9 @@ Les programme est entièrement écrit en language Python.
 # Exécution:
 
 ** Pour son exécution, il est necessaire de créer et d'activer l'environnement virtuel. Le fichier requirement.txt liste l'ensemble des modules utiles au bon fonctionnement du script. En plus de ces modules, il est faut importer certains modules tels que:<br/>
-	-os: pour la gestion des dossier et des fichiers<br/>
-	-re: pour les expression régulière (au niveau de la nomination de chaque image)<br/>
-	-csv: pour la gestion des fichiers.csv<br/>
+	<li>os: pour la gestion des dossier et des fichiers<br/>
+	<li>re: pour les expression régulière (au niveau de la nomination de chaque image)<br/>
+	<li>csv: pour la gestion des fichiers.csv<br/>
 ** Le lancement du programme se fait en ligne de commande à partir d'un terminal python.
 
 ***
