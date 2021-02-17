@@ -21,7 +21,7 @@ Pour son exécution, il faut dans un premier temps le cloner dans un dépot loca
 
 Dans un second temps il est necessaire de créer et d'activer l’environnement virtuel.<br/>
 * On le créer en saisissant ces commandes dans le terminal: `python -m venv env`.<br/>
-*Pour l’activer : `source env/bin/activate`.<br/>
+* Pour l’activer : `source env/bin/activate`.<br/>
 * il faut installer les modules à partir du fichier requirement.txt avec la commande suivante : `pip install -r requirement.txt`
 
 	
