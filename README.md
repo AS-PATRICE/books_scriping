@@ -17,12 +17,12 @@ Le programme s'organise autour de quatre principales méthodes: <br/>
 
 Pour son exécution, il faut dans un premier temps le cloner dans un dépot local. Pour cela il convient de créer un nouveau dossier et d'y accèder en ligne de commande. Ensuite, il faut copier le lien du repository (du code) sur github et revenir dans son terminal taper les deux commandes suivantes pour clonnage: <br/>
 
-<li>`git clone https://github.com/AS-PATRICE/books_scriping.git`<br/><br/>
+`git clone https://github.com/AS-PATRICE/books_scriping.git`<br/>
 
 Dans un second temps il est necessaire de créer et d'activer l’environnement virtuel.<br/>
-<li> On le créer en saisissant ces commandes dans le terminal: `python -m venv env`.<br/>
-<li> Pour l’activer : `source env/bin/activate`.<br/>
-<li> il faut installer les modules à partir du fichier requirement.txt avec la commande suivante : `pip install -r requirement.txt`
+* On le créer en saisissant ces commandes dans le terminal: `python -m venv env`.<br/>
+*Pour l’activer : `source env/bin/activate`.<br/>
+* il faut installer les modules à partir du fichier requirement.txt avec la commande suivante : `pip install -r requirement.txt`
 
 	
 
